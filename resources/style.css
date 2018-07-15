@@ -1,0 +1,134 @@
+/* body tweaks */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Arial;
+  color: rgb(255, 255, 255);
+}
+
+/* font tweaks */
+
+#history1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
+}
+#history2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
+}
+#history3 {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
+}
+#history4 {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  padding-left: 10px;
+}
+
+#searchBar {
+  padding-right: 25px;
+}
+
+b {
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+}
+
+h5 {
+  font-weight: bold;
+  color: black;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  height: 100%;
+  left: 0;
+  background-color: black;
+  overflow:hidden;
+}
+
+.right {
+  right: 0;
+  background-color: #ff0000;
+  padding: 0px;
+}
+
+#additionalDiv {
+  display: none;
+}
+
+/* video iframe */
+
+#video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* map tweaks */
+
+.map-section {
+  position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+  height: 100%;
+}
+
+#map_canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* card tweaks */
+.card-img-top {
+  opacity: .4;
+}

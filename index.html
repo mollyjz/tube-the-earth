@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- Resource links -->
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
+    <title>Tube The Earth</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="split left" id="map-section"></div>
+
+    <div class="split right">
+      <nav class="navbar navbar-dark bg-transparent p-3">
+        <a class="navbar-brand text-dark" href="#">
+          <d1><b>Tube The Earth</b></d1>
+        </a>
+    <div>
+      <div id="searchBar" class="column input-group search-nav">
+        <form onsubmit="event.preventDefault();" class="form-inline">  
+          <div class="input-group mb-3" id="floating-panel">
+            <input id="address" type="textbox"
+              class="form-control w-75 p-2"
+              placeholder="Search By Location">
+            <input id="submit" class="btn btn-outline-light w-25" type="button" value="Tube">
+              <div class="row">
+                <form class="form-inline">
+              </div>
+              <div class="row  mt-1">
+                <h5 class="col small ml-2 my-1">Radius (in miles)</h5>
+                <select class="nav nav-pills" id="rad" name="radius" class="small">
+                  <option value="1">1</option>
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+        </form>
+      </form>
+    </div>
+  </div>
+ 
+  <div class="row  pl-3">
+    <h5 class="text-alert">Current Location:&nbsp; </h5> 
+    <d3></d3> <span id="currentLat">43.071755</span>, <span id="currentLong">-70.762553</span></d3>
+  
+  </div>
+      </nav>
+        <div class="card bg-dark" style="width:100%">
+          <div class="row mx-auto"></div>
+          <div class="mx-auto" style="width:100%">
+            <div class="videoWrapper" style="width:100%" id="videoIframe">
+              <iframe width="100%" id="mainVideo" src="https://www.youtube.com/embed/asgENCuBoKk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+              </iframe>
+            </div>
+            <div class="row">
+              <ul class="nav nav-pills pl-3 mx-auto" style="width:100%">
+                <li class="nav-item">
+                  <a id="recently" class="nav-link bg-secondary text-light p-2 m-2" href="#">Additional Results</a>
+                </li>
+                <li class="nav-item">
+                  <a id="history" class="nav-link text-dark bg-danger  m-2" href="#">Trending</a>
+                </li>
+              </ul>
+              <div id="additionalDiv" style="width:100%">
+                <div class="container bg-dark">
+                  <div class="videoWrapper" style="width:100%">
+                    <div id="cardThumb1">
+                    <img class="card-img-top" id="cardThumb1" src="resources/img/img1_DSF9340-HDR.jpg" alt="Card image" alt="Thumbnail">
+                    </div>
+                  </div>
+                  <div class="videoWrapper" style="width:100%">
+                      <div id="cardThumb2">
+                        <img class="card-img-top" id="cardThumb2" src="resources/img/IMG_7559.JPG" alt="Card image" alt="Thumbnail">
+                      </div>
+                  </div>
+                  <div class="videoWrapper" style="width:100%">
+                      <div id="cardThumb3">
+                        <img class="card-img-top" id="cardThumb3" src="resources/img/img2_DSCF6619.JPG" alt="Card image" alt="Thumbnail">
+                      </div>
+                  </div>
+                  <div class="videoWrapper" style="width:100%">
+                    <div id="cardThumb4">
+                      <img class="card-img-top" id="cardThumb4" src="resources/img/img3_DSF8751-HDR.jpg" alt="Card image" alt="Thumbnail">
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="ml-3" id="historyDiv" style="width:100%">
+                  <span id="history1">
+                    <img src="resources/img/youtube image.png" height="50px" alt="Thumbnail">
+                    <caption>Trending One</caption>
+                  </span>
+                  <HR>
+                  <span id="history2">
+                    <img src="resources/img/youtube image.png" height="50px" alt="Thumbnail">
+                    <caption>Trending Two</caption>
+                  </span>
+                  <HR>
+                  <span id="history3">
+                    <img src="resources/img/youtube image.png" height="50px" alt="Thumbnail">
+                    <caption>Trending Three</caption>
+                  </span>
+                  <HR>
+                  <span id="history4">
+                    <img src="resources/img/youtube image.png" height="50px" alt="Thumbnail">
+                    <caption>Trending Four</caption>
+                  </span>
+              </div>
+                <HR>
+              </div>
+            </div>
+          </div>
+        </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="firebase.js" type="text/javascript"></script>
+      <script src="resources/app.js"></script>
+      <script src="resources/app-2.js"></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPJY8PEhnSLeidBniCMbet80SlznQUFvM&callback=initMap">
+    </script>
+  </body>
+</html>
