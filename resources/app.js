@@ -2,17 +2,16 @@ var longi;
 var lati;
 var marker;
 
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map-section'), {
+function initMap() { //load new instance of map
+  var map = new google.maps.Map(document.getElementById('map-section'), { //show map on load
     zoom: 8,
     center: {lat: 43.07167, lng: -70.76236}
   });
   var geocoder = new google.maps.Geocoder();
-  google.maps.event.addListener(map, 'click', function(event) {
+  google.maps.event.addListener(map, 'click', function(event) { //geolocate on click of map
     placeMarker(event.latLng);
-    console.log(event.latlng);
   });
-  function placeMarker(location) {
+  function placeMarker(location) { //pin placemarker to map
       if (marker == undefined){
         marker = new google.maps.Marker({
           position: location,
@@ -28,22 +27,22 @@ function initMap() {
       lati = location.lat();
       tube();
   }
-  document.getElementById('submit').addEventListener('click', function(event) {
-    event.preventDefault()
+  document.getElementById('submit').addEventListener('click', function(event) { //geolocate on location search
+    event.preventDefault();
     geocodeAddress(geocoder, map);
   });
 };
 
-function tube(){
+function tube(){ //to find youtube videos based on location searched
   var radius = $("#rad").val().trim();
-  var queryURL = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&location=" + lati + "," + longi + "&locationRadius=" + radius + "miles&key=AIzaSyC3hyycsztOR8N1flGac1ocYQF1PGt6F6M";
+  var queryURL = "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&location=" + lati + "," + longi + "&locationRadius=" + radius + "miles&key=AIzaSyC3hyycsztOR8N1flGac1ocYQF1PGt6F6M"; //build URL
   $("#currentLat").text(lati.toFixed(6));
   $("#currentLong").text(longi.toFixed(6));
   
-  $.ajax({
+  $.ajax({ //grab youtube search results from API
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function(response) { //load top 5 results
     var results = response.data;
     if (response.pageInfo.totalResults !== 0) {
       for (var i = 0; i < response.items.length; i++) {             
@@ -58,7 +57,7 @@ function tube(){
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
   geocoder.geocode({'address': address}, function(results, status) {
-    if (status === 'OK') {
+    if (status === 'OK') { //if server returns valid results, set lat/long based on address entered
       lati = results[0].geometry.location.lat();
       longi = results[0].geometry.location.lng();
       tube();
@@ -66,7 +65,8 @@ function geocodeAddress(geocoder, resultsMap) {
     }
   });
 }
-function initialize() {
+
+function initialize() { //update video map & video thumbnails
   var latlng = new google.maps.LatLng(42.55308, 9.140625);
   $("#mainVideo").html(popularThumbnailArray[0]);
   var myOptions = {
@@ -79,11 +79,11 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 };
 
-$("#history").on("click", function() {
+$("#history").on("click", function() { //load additional results for searched location on button click
   $("#additionalDiv").css("display", "none")
   $("#historyDiv").css("display", "block")
 });
-$("#recently").on("click", function() {
+$("#recently").on("click", function() { //load trending results based on other users' searches 
     $("#historyDiv").css("display", "none")
     $("#additionalDiv").css("display", "block")
 });
