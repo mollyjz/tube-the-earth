@@ -2,7 +2,7 @@
 
 ### Original web application that utilizes Google and YouTube APIs to filter YouTube videos by location of origin. View videos from anywhere on earth and discover what other users are searching for.
 
-### Deployed at https://mattieice7486.github.io/earthtube/
+### Deployed at https://mollyjz.github.io/tube-the-earth/.
 
 ### Authors:
 * #### Steve Bowden - UI
